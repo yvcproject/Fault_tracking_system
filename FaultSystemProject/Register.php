@@ -5,7 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="nav.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="general.css">
-		
+
 </head>
 <body>
 <script src="nav.js"></script>
@@ -34,9 +34,10 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
   <a href="http://localhost/FaultSystemProject/Register.php">Add New User</a>
 </div> 
         
-    <div style="padding-left: 10%; padding-right: 10%; align-content: center">
+    <div style="padding-left: 20%; padding-right: 20%; align-content: center">
 
     	<h1> Add New User </h1>
+		<br>
 
 	<form action="insertUser.php" method="post"> 
 
