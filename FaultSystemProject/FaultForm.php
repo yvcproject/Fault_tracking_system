@@ -4,7 +4,8 @@
 	<title> New Fault </title>
 	<link rel="stylesheet" type="text/css" href="nav.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+	<link rel="stylesheet" type="text/css" href="general.css">
+	
     <!-- Bootstrap core CSS -->
 <link href="bootstrap.min.css" rel="stylesheet">
 </head>
@@ -36,44 +37,51 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 </div> 
 
     <div style="padding-left: 10%; padding-right: 10%; align-content: center">
+		<h1> Add New Fault </h1>
 
-	<form action="insertNewFault.php" method="post" id ="faultForm" > 
+		<form action="insertNewFault.php" method="post" id ="faultForm" > 
+			
+			<label>Category: </label> <br>
+			<select name="category" required>
+					<option value=""></option>
+					<option value="electricity">Electricity</option>
+					<option value="safetyHazard">Safety Hazard</option>
+					<option value="toilet">Toilet</option>
+					</select> 
+			<br>
+			
+			<label>Location: </label> <br>
+			<input type="text" name="location" required >  
+			<br>
 		
-        <label>Category: </label> <br>
-		<select name="category" required>
-				<option value=""></option>
-			    <option value="electricity">Electricity</option>
-			    <option value="safetyHazard">Safety Hazard</option>
-			    <option value="toilet">Toilet</option>
-			    </select> 
-        <br>
-        
-		<label>Location: </label> <br>
-        <input type="text" name="location" required >  
-        <br>
-	
-		<label>Priority: </label> <br> 
-		<div>	 
-				 <label>not very important - </label>
-				 <input required="r" type="radio" name="Priority"  value="1">1 
-			     <input required="r" type="radio" name="Priority"  value="2">2
-			     <input required="r" type="radio" name="Priority"  value="3">3
-			     <input required="r" type="radio" name="Priority"  value="4">4
-			     <input required="r" type="radio" name="Priority"  value="5">5
-			     <label> - very important</label>
+			<label>Priority: </label> <br> 
+			<div>	 
+					<label>not very important - </label>
+					<input required="r" type="radio" name="Priority"  value="1">1 
+					<input required="r" type="radio" name="Priority"  value="2">2
+					<input required="r" type="radio" name="Priority"  value="3">3
+					<input required="r" type="radio" name="Priority"  value="4">4
+					<input required="r" type="radio" name="Priority"  value="5">5
+					<label> - very important</label>
 
-		</div>     
+			</div>     
 
 
 
-		<label>Description: </label> <br>
-		 <textarea rows="4" cols="50" name="description" form="faultForm" placeholder="Enter Text Here" required></textarea>
-		 <br>								
+			<label>Description: </label> <br>
+			<textarea rows="4" cols="50" name="description" form="faultForm" placeholder="Enter Text Here" required></textarea>
+			<br>								
 
-		<button type="submit" name="submit">Submit</button>
-		
-	</form>
+			<button type="submit" name="submit">Submit</button>
+			
+		</form>
 	</div> 
 	
+
+
+
+
+
+	<footer id="footer">&copy; YAR</footer>
 </body>
 </html>
