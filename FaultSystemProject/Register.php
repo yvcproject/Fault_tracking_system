@@ -2,15 +2,18 @@
 <html>
 <head>
 	<title> insert form value into database </title>
-	
+
 		<link rel="stylesheet" type="text/css" href="nav.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="general.css">
 
 	<style>
 		#submit{
-			border-radius: 12px;
-			background-color: #555555;
+			border-radius: 8px;
+			background-color: #66CDAA;
+			padding: 12px 28px;
+			font-weight: bold;
+			
 		}
 
 	</style>
@@ -89,7 +92,7 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 
 
 
-
+	<br>
 	<footer id="footer">&copy; YAR</footer>
 </body>
 </html>
