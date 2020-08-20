@@ -21,8 +21,6 @@ if(isset($_POST['submit'])){
 		$status = "open";
 
 
-		echo "$ID"
-
 		$query = "insert into fault (faultDate,faultCategory,faultLocation,faultDescription,faultOpenBy,faultStatus,faultPriority) 
 		values ('$Date', '$category', '$location', '$description', '$ID', '$status','$priority')";
 
