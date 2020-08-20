@@ -20,10 +20,15 @@ if(isset($_POST['submit'])){
 		$Date = date('yy-m-d'); 
 		$status = "open";
 
+
+		echo "$ID"
+
 		$query = "insert into fault (faultDate,faultCategory,faultLocation,faultDescription,faultOpenBy,faultStatus,faultPriority) 
 		values ('$Date', '$category', '$location', '$description', '$ID', '$status','$priority')";
 
+
 		$run = mysqli_query($conn,$query) or die(mysqli_error());
+		
 
 		if($run){
 			echo "From submitted successfully";
@@ -33,7 +38,9 @@ if(isset($_POST['submit'])){
 			echo "Form not submitted";
            
 		}
-}
+	}
+
+
 	else{
 		echo"all fields required";
 	}
