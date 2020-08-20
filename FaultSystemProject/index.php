@@ -6,6 +6,8 @@
     <title>Sign in</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
+    <link rel="stylesheet" type="text/css" href="general.css">
+
 
     <!-- Bootstrap core CSS -->
 <link href="bootstrap.min.css" rel="stylesheet">
@@ -29,6 +31,7 @@
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
   </head>
+
   <body class="text-center">
     <form action="signin.php" method="post" id ="signin" class="form-signin">
         
@@ -68,5 +71,11 @@
 </form>
 
 
+
+
+
+
+
+<footer id="footer">&copy; YAR</footer>
 </body>
 </html>
