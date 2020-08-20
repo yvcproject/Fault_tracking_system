@@ -170,8 +170,12 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 
 
 
+	<br>
+	<div class="footer">
+		<p>&copy; YAR 2020</p>
 
-  <footer id="footer">&copy; YAR</footer>
+  </div>
+  
 </body>
 
 
