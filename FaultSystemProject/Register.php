@@ -16,6 +16,7 @@
 			
 		}
 
+
 	</style>
 
 
@@ -54,7 +55,7 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 
 	<form action="insertUser.php" method="post"> 
 
-		<label>ID: </label><br>
+		<label style="bold">ID: </label><br>
 		<input type="text" name="ID" required>
 		<br>
 
@@ -92,7 +93,13 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 
 
 
+
 	<br>
-	<footer id="footer">&copy; YAR</footer>
+	<div class="footer">
+		<p>&copy; YAR 2020</p>
+
+	</div>
+
+
 </body>
 </html>
