@@ -39,7 +39,7 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 
 	<form action="insertNewFault.php" method="post" id ="faultForm" > 
 		
-        <label>Category: </label> 
+        <label>Category: </label> <br>
 		<select name="category" required>
 				<option value=""></option>
 			    <option value="electricity">Electricity</option>
@@ -48,11 +48,11 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 			    </select> 
         <br>
         
-		<label>Location: </label> 
+		<label>Location: </label> <br>
         <input type="text" name="location" required >  
         <br>
 	
-		<label>Priority: </label> 
+		<label>Priority: </label> <br> 
 		<div>	 
 				 <label>not very important - </label>
 				 <input required="r" type="radio" name="Priority"  value="1">1 
