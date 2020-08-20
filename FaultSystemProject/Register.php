@@ -39,28 +39,35 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 
 	<form action="insertUser.php" method="post"> 
 
-		<label>ID: </label>
-		<input type="text" name="ID" required="id"> <br>
+		<label>ID: </label><br>
+		<input type="text" name="ID" required>
+		<br>
 
-		<label>First Name: </label>
-		<input type="text" name="firstName" required="fName" >  <br>
+		<label>First Name: </label><br>
+		<input type="text" name="firstName" required>
+		<br>
 
-		<label>Last Name: </label>
-		<input type="text" name="lastName" required="lName"> <br>
+		<label>Last Name: </label><br>
+		<input type="text" name="lastName" required>
+		<br>
 
-		<label>Password: </label>
-		<input type="password" name="password" required="pwd"> <br>
+		<label>Password: </label><br>
+		<input type="password" name="password" required>
+		<br>
 
-		<label>Role: </label> 
-		<select name="Role" required="role">
+		<label>Role: </label> <br>
+		<select name="Role" required>
 				<option value=""></option>
 			    <option value="Student">Student</option>
 			    <option value="Staff">Staff</option>
 			    <option value="Management">Management</option>
 			    <option value="serviceMan">Service Man</option>
-			    </select> <br>
+			    </select>
+		<br>
 
-		<label>Phone Number: </label> <input type="text" name="phoneNumber" required="phone"> <br>
+		<label>Phone Number: </label><br>
+		<input type="text" name="phoneNumber" required>
+		<br>
 
 		<button type="submit" name="submit">Submit</button>
 		
