@@ -66,8 +66,9 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 
 
 
-		<label>Description: </label><br>
-		 <textarea rows="4" cols="50" name="description" form="faultForm" placeholder="Enter Text Here" required></textarea> <br>								
+		<label>Description: </label> <br>
+		 <textarea rows="4" cols="50" name="description" form="faultForm" placeholder="Enter Text Here" required></textarea>
+		 <br>								
 
 		<button type="submit" name="submit">Submit</button>
 		
