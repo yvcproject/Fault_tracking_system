@@ -8,6 +8,21 @@
 
     <!-- Bootstrap core CSS -->
 <link href="bootstrap.min.css" rel="stylesheet">
+
+
+<style>
+		#submit{
+			border-radius: 8px;
+			background-color: #66CDAA;
+			padding: 12px 28px;
+			font-weight: bold;
+			
+		}
+
+
+	</style>
+
+
 </head>
 <body>
     
@@ -73,7 +88,7 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 			<textarea rows="4" cols="50" name="description" form="faultForm" placeholder="Enter Text Here" required></textarea>
 			<br>								
 
-			<button type="submit" name="submit">Submit</button>
+			<button type="submit" name="submit" id="submit">Submit</button>
 			
 		</form>
 	</div> 
