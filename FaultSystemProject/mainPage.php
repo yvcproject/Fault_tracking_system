@@ -66,9 +66,7 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
         <a class="dropdown-item" href="mainPage.php?status=Closed">Closed Faults</a>
         <a class="dropdown-item" href="mainPage.php?status=All">All Faults</a>
       </div>
-                   <a 
-     href="faultForm.php" class="btn btn-success float-right"  >Open New Fault
-    </a>
+                   <a href="faultForm.php" class="btn btn-success float-right">Open New Fault</a>
     </div>
 </div>
 
