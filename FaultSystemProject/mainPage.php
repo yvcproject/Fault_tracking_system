@@ -152,16 +152,14 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 	</div>
 
 
-
+<!-- footer-->
+<?php include 'footer.php'; ?>
 
 
 
 
   <br>
-	<div class="footer" id="footer">
-		<p>&copy; YAR 2020</p>
 
-	</div>
 
 </body>
 

@@ -81,10 +81,8 @@
 
 	
 	<br>
-	<div class="footer" id="footer">
-		<p>&copy; YAR 2020</p>
-
-	</div>
+<!-- footer-->
+<?php include 'footer.php'; ?>
 
 </body>
 </html>
