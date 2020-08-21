@@ -51,91 +51,82 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
     <div style="padding-left: 10%; padding-right: 10%; align-content: center">
 
         <?php 
-          $faultID = '0';
-          if(@$_GET['id']==true){
-            $faultID=$_GET['id'];
-            }
 
-            $query = "select * from fault where ID= ".$faultID;
-            $run = mysqli_query($conn,$query) or die(mysqli_error());
-            $row = mysqli_fetch_array($run);
+               	$categoryOptions = array(
+               		'electricity' => 'Electricity',
+               		'safetyHazard' => 'Safety Hazard',
+               		'toilet' => 'Toilet'
+               	);
 
-          	echo "<h3> Fault # $row[ID] </h3>";
-			echo "<h3> fault Date $row[faultDate] </h3>";
-			echo '<form action="UpdateFault.php" method="post" id ="faultForm" >';
-			echo '<label>Category: </label>';
-			echo "<select name=\"category\" value=\"$row[faultCategory]\" required>";
-			echo '<option value=""></option>';
-			if($row[faultCategory]== electricity){
-				echo '<option value="electricity" selected>Electricity</option>';
-			}
-			else{
-				echo '<option value="electricity">Electricity</option>';
-				if($row[faultCategory]== safetyHazard){
-					echo '<option value="safetyHazard" selected>Safety Hazard</option>';
-					echo '<option value="toilet">Toilet</option>';
-				}
-				else{
-					echo '<option value="safetyHazard">Safety Hazard</option>';
-					echo '<option value="toilet" selected>Toilet</option>';
-				}
-			}
+                 $faultID = '0';
+                 if(@$_GET['id']==true){
+                   $faultID=$_GET['id'];
+                   }
 
-			echo '</select>';
-			echo '<br>';
-			echo '<label>Location: </label>';
-			echo '<input type="text" name="location" value="" required >';
-			echo '<br>';
-			echo '<label>Priority: </label>';
-			echo '<div>';
-			echo '<label>not very important - </label>';
-			echo '<input required="r" type="radio" name="Priority"  value="1">1';
-			echo '<input required="r" type="radio" name="Priority"  value="2">2';
-			echo '<input required="r" type="radio" name="Priority"  value="3">3';
-			echo '<input required="r" type="radio" name="Priority"  value="4">4';
-			echo '<input required="r" type="radio" name="Priority"  value="5">5';
-			echo '<label> - very important</label>';
-			echo '';
-			echo '</div>';
-			echo '';
-			echo '<label>Description: </label><br>';
-			echo '<textarea rows="4" cols="50" name="description" form="faultForm" value="" placeholder="Enter Text Here" required></textarea> <br>';
-			echo '';
-			echo '';
-			echo '<select name="status" required>';
-			echo '<option value="open">open</option>';
-			echo '<option value="closed">closed</option>';
-			echo '</select>';
-			echo 'status=closed';
-			echo '<label>Serviseman Comments: </label><br>';
-			echo '<textarea rows="4" cols="50" name="Comments" form="faultForm" value="" placeholder="Enter Text Here" required></textarea> <br>';
-			echo '';
-			echo '<label>Part replaced: </label><br>';
-			echo '<textarea rows="4" cols="50" name="replaced" form="faultForm" value="" placeholder="Enter Text Here" required></textarea> <br>';
-			echo '';
-			echo '<button type="submit" name="submit">Submit</button>';
-			echo '';
-			echo '</form>';
+                   $query = "select * from fault where ID= ".$faultID;
+                   $run = mysqli_query($conn,$query) or die(mysqli_error());
+                   $row = mysqli_fetch_array($run);
+
+                   $faultlocation = isset($row['faultLocation']) ? $row['faultLocation'] : '';
+                   $faultCategory = isset($row['faultCategory']) ? $row['faultCategory'] : '';
+
+                   $faultCategory = isset($row['faultCategory']) ? $row['faultCategory'] : '';
+                   $faultCategory = isset($row['faultCategory']) ? $row['faultCategory'] : '';
 
 
+                   $html ="
+       	          	<h3> Fault # $row[ID] </h3>
+       				<h3> fault Date $row[faultDate] </h3>
+       				<form action='UpdateFault.php' method='post' id ='faultForm' >
+       				<label>Category: </label>
+       				<select name=\"category\" value=\'$row[faultCategory]\' required>
+       											";
 
 
+       			//category options - cheack who to select
+       			//TODO - check why this code fails without @ sign
+       			foreach ($categoryOptions as $optionKey => $optionVal) {
+       				$html.= '<option value='.$optionKey.''.($optionKey == $faultCategory ? 'selected': '').'>'.$optionVal.'</option>';
+       			};
 
+       			$html.= '
+       			</select>
+       			<br>
+       			<label>Location: </label>
+       			<input type="text" name="location" value="'.$faultlocation.'" required >
+       			<br>
+       			<label>Priority: </label>
+       			<div>
+       			<label>not very important - </label>
+       			<input required="r" type="radio" name="Priority"  value="1">1
+       			<input required="r" type="radio" name="Priority"  value="2">2
+       			<input required="r" type="radio" name="Priority"  value="3">3
+       			<input required="r" type="radio" name="Priority"  value="4">4
+       			<input required="r" type="radio" name="Priority"  value="5">5
+       			<label> - very important</label>
 
+       			</div>
 
+       			<label>Description: </label><br>
+       			<textarea rows="4" cols="50" name="description" form="faultForm" value="" placeholder="Enter Text Here" required></textarea> <br>
 
+       			<select name="status" required>
+       			<option value="open">open</option>
+       			<option value="closed">closed</option>
+       			</select>
+       			status=closed
+       			<label>Serviseman Comments: </label><br>
+       			<textarea rows="4" cols="50" name="Comments" form="faultForm" value="" placeholder="Enter Text Here" required></textarea> <br>
 
+       			<label>Part replaced: </label><br>
+       			<textarea rows="4" cols="50" name="replaced" form="faultForm" value="" placeholder="Enter Text Here" required></textarea> <br>
 
+       			<button type="submit" name="submit">Submit</button>
+       			</form>';
 
-
-
-
-
-
-
-
-         ?>
-	</div> 
+       			echo $html;
+                ?>
+       	</div>
 	
 	
 	<br>
