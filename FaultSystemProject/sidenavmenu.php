@@ -8,10 +8,11 @@ echo '
   <a href="./faultForm.php">New Fault</a>';
       if ($Permission > 1){
       echo '<a href="./reports.php">Reports</a>';
+      }
+      if ($Permission > 2){
       echo '<a href="./Register.php">Add New User</a>';
       }
-      else{
-      }
+
 echo '</div> ';
   ?>
 
