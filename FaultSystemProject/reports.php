@@ -37,6 +37,31 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 
 
 
+<div>
+  <form>
+    
+      <input type = "button" value = "Print" onclick = "window.print()" />
+  </form> 
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
