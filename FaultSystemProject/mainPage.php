@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="nav.css">
   <link rel="stylesheet" type="text/css" href="mainPage.css">
   <link rel="stylesheet" type="text/css" href="general.css">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- infromation from DB  --> 
 <?php
@@ -20,32 +20,14 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 
 
 <body>
-	<script src="nav.js"></script>
 
-<?php include 'menu.php';?>
 
 <!-- Head Nav Image and text -->
-<!-- <nav class="navbar navbar-light bg-light">
-	 <span style="font-size:30px;cursor:pointer" dir="ltr" onclick="openNav()">&#9776; <?php
-echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
-?> </span>
-  <a class="navbar-brand" href="./mainPage.php" style="font-size:30px;cursor:">
-      FaultSystemProject - YAR
-    <img src="YARLOGO.jpg" alt="logo" width="80" height="40" class="d-inline-block align-top" loading="lazy">
-  </a>
-</nav>
--->
-
+<?php include 'navbar.php'; ?>
 
 <!-- Side Nav Manu -->
+<?php include 'sidenavmenu.php'; ?>
 
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="http://localhost/FaultSystemProject/mainPage.php">Home Page</a>
-  <a href="http://localhost/FaultSystemProject/faultForm.php">New Fault</a>
-  <a href="http://localhost/FaultSystemProject/reports.php">Reports</a>
-  <a href="http://localhost/FaultSystemProject/Register.php">Add New User</a>
-</div> 
 
   <div><br><br></div>
 
@@ -85,8 +67,6 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     
-
-
         <div class="container my-4">
 
 

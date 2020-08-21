@@ -58,7 +58,7 @@ if(isset($_POST['submit'])){
                     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
                     }
                     
-                    header("Location: http://localhost/FaultSystemProject/mainPage.php");
+                    header("Location: ./mainPage.php");
                         
                     }
 
