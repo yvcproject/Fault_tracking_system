@@ -35,13 +35,13 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 <div style="padding-left: 10%; padding-right: 10%; align-content: center">
 
       <div class="dropdown">
-      <button style="  " class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <?php 
-          $filter = 'open';
+          $filter = 'Open';
           if(@$_GET['status']==true){
             $filter=$_GET['status'];
             }
-        echo $filter.' faults';
+        echo $filter.' Faults';
 
          ?>
       </button>
@@ -86,7 +86,7 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
             $query = "select * from fault";
             }
             else{
-             $query = "select * from fault wherefaultOpenBy='$userid'";
+             $query = "select * from fault where faultOpenBy='$userid'";
             }
         }
         else{
