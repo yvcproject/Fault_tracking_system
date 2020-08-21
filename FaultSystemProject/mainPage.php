@@ -76,17 +76,30 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 
     <?php  
 
-        $statusview = "Open";
-        
-        if(@$_GET['status']==true){
-          $statusview=$_GET['status'];
-        }
-        
-        $query = "select * from fault where faultStatus= '$statusview' ";
+        $userid = isset($_COOKIE["UserID"]) ? $_COOKIE["UserID"] : '';
+        $Permission = isset($_COOKIE["Permission"]) ? $_COOKIE["Permission"] : 0;
+        $statusview = isset($_GET['status']) ? $_GET['status'] : "Open";
+
 
         if($statusview== 'All'){
-          $query = "select * from fault";
+            if ($Permission >1){
+            $query = "select * from fault";
+            }
+            else{
+             $query = "select * from fault wherefaultOpenBy='$userid'";
+            }
         }
+        else{
+             if ($Permission >1){
+             $query = "select * from fault where faultStatus= '$statusview'";
+             }
+             else{
+             $query = "select * from fault where faultStatus= '$statusview' and faultOpenBy='$userid'";
+             }
+        }
+
+
+
 
           echo '<div class="table-responsive">';
         echo "<table class=\"table-condensed table-hover table table-striped table-bordered\" 
