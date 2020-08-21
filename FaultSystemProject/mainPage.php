@@ -4,6 +4,7 @@
 	<title>Home Page</title>
 	<link rel="stylesheet" type="text/css" href="nav.css">
   <link rel="stylesheet" type="text/css" href="mainPage.css">
+  <link rel="stylesheet" type="text/css" href="general.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- infromation from DB  --> 
@@ -26,9 +27,9 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 	 <span style="font-size:30px;cursor:pointer" dir="ltr" onclick="openNav()">&#9776; <?php
 echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 ?> </span>
-  <a class="navbar-brand" href="http://localhost/FaultSystemProject/mainPage.php" style="font-size:30px;cursor:>
-    <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-    FaultSystemProject - YAR
+  <a class="navbar-brand" href="http://localhost/FaultSystemProject/mainPage.php" style="font-size:30px;cursor:">
+      FaultSystemProject - YAR
+    <img src="YARLOGO.jpg" alt="logo" width="80" height="40" class="d-inline-block align-top" loading="lazy">
   </a>
 </nav>
 
@@ -170,6 +171,15 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 
 
 
+
+
+
+
+  <br>
+	<div class="footer" id="footer">
+		<p>&copy; YAR 2020</p>
+
+	</div>
 
 </body>
 
