@@ -89,7 +89,7 @@
               $statusview=$_GET['status'];
             }
             
-            $query = "select * from fault where faultStatus= 'open'  order by faultDate DESC";
+            $query = "select * from fault where faultStatus= 'open'  order by faultDate";
 
             if($statusview== 'Priority'){
               $query = "select * from fault where faultStatus= 'open' order by faultPriority DESC";
