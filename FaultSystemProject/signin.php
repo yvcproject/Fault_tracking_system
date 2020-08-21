@@ -63,7 +63,7 @@ if(isset($_POST['submit'])){
                     }
 
             else{
-                    header("Location: http://localhost/faultSystemProject?msg=Invalid Username or Password");
+                    header("Location: index.php?msg=Invalid Username or Password");
             }
         
 			

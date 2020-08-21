@@ -42,10 +42,10 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="http://localhost/FaultSystemProject/mainPage.php">Home Page</a>
-  <a href="http://localhost/FaultSystemProject/faultForm.php">New Fault</a>
-  <a href="http://localhost/FaultSystemProject/reports.php">Reports</a>
-  <a href="http://localhost/FaultSystemProject/Register.php">Add New User</a>
+  <a href="./mainPage.php">Home Page</a>
+  <a href="./faultForm.php">New Fault</a>
+  <a href="./reports.php">Reports</a>
+  <a href="./Register.php">Add New User</a>
 </div> 
         
     <div style="padding-left: 20%; padding-right: 20%; align-content: center">

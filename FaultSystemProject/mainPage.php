@@ -27,7 +27,7 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 	 <span style="font-size:30px;cursor:pointer" dir="ltr" onclick="openNav()">&#9776; <?php
 echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 ?> </span>
-  <a class="navbar-brand" href="http://localhost/FaultSystemProject/mainPage.php" style="font-size:30px;cursor:">
+  <a class="navbar-brand" href="./mainPage.php" style="font-size:30px;cursor:">
       FaultSystemProject - YAR
     <img src="YARLOGO.jpg" alt="logo" width="80" height="40" class="d-inline-block align-top" loading="lazy">
   </a>
@@ -39,10 +39,10 @@ echo 'Hello, ' . htmlspecialchars($_COOKIE["FirstName"]) ;
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="http://localhost/FaultSystemProject/mainPage.php">Home Page</a>
-  <a href="http://localhost/FaultSystemProject/faultForm.php">New Fault</a>
-  <a href="http://localhost/FaultSystemProject/reports.php">Reports</a>
-  <a href="http://localhost/FaultSystemProject/Register.php">Add New User</a>
+  <a href="./mainPage.php">Home Page</a>
+  <a href="./faultForm.php">New Fault</a>
+  <a href="./reports.php">Reports</a>
+  <a href="./Register.php">Add New User</a>
 </div> 
 
   <div><br><br></div>
