@@ -15,12 +15,11 @@ $password = "";
 $dbname = "faultsystem";
 $conn = mysqli_connect($server,$username,$password,$dbname);
 ?>
-
 </head>
-
-
 <body>
 
+<!-- Login Check -->
+<?php isset($_COOKIE["UserID"]) ? $_COOKIE["UserID"] : header("Location: ./"); ?>
 
 <!-- Head Nav Image and text -->
 <?php include 'navbar.php'; ?>
@@ -28,12 +27,12 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 <!-- Side Nav Manu -->
 <?php include 'sidenavmenu.php'; ?>
 
+  <div><br><br><br><br></div>
 
-  <div><br><br></div>
 
-<!-- Filter and Button -->
 <div style="padding-left: 10%; padding-right: 10%; align-content: center">
 
+<!-- Filter and Button -->
       <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <?php 
@@ -67,19 +66,12 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     
-        <div class="container my-4">
-
-
-    
-
-
-
+    <div class="container my-4">
     <?php  
 
         $userid = isset($_COOKIE["UserID"]) ? $_COOKIE["UserID"] : '';
         $Permission = isset($_COOKIE["Permission"]) ? $_COOKIE["Permission"] : 0;
         $statusview = isset($_GET['status']) ? $_GET['status'] : "Open";
-
 
         if($statusview== 'All'){
             if ($Permission >1){
@@ -97,85 +89,94 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
              $query = "select * from fault where faultStatus= '$statusview' and faultOpenBy='$userid'";
              }
         }
-
-
-
-
-          echo '<div class="table-responsive">';
-        echo "<table class=\"table-condensed table-hover table table-striped table-bordered\" 
-            //style=\"margin-left: auto; margin-right: auto; \">";
-
-          
-          //echo '<table class="table">';
-          echo '<thead>';
-          echo '<tr>';
-          echo '<th scope="col">#</th>';
-          echo '<th scope="col">Date</th>';
-          echo '<th scope="col">Category</th>';
-          echo '<th scope="col">Location</th>';
-          echo '<th scope="col">Priority</th>';
-          echo '<th scope="col">status</th>';
-          echo '</tr>';
-          echo '</thead>';
-          echo '<tbody>';
-
-       
-		//$query = "select * from fault";
+        echo '
+            <div class="table-responsive">
+            <table class="table-condensed table-hover table table-striped table-bordered"
+            //style="margin-left: auto; margin-right: auto;">
+            <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Category</th>
+            <th scope="col">Location</th>
+            <th scope="col">Priority</th>
+            <th scope="col">status</th>
+            </tr>
+            </thead>
+            <tbody>
+            ';
 
 		$run = mysqli_query($conn,$query) or die(mysqli_error());
-    $eid=1;
+        $eid=1;
 		if($run){
         
          while($row = mysqli_fetch_array($run)) 
          {
           echo '<tr class="accordion-toggle collapsed" id="accordion1" data-toggle="collapse" data-parent="#accordion1" href="#collapse'.$eid.'">';
           echo '<td class="expand-button"> </td>';
-            echo "<td> $row[faultDate]</td>";
-            echo "<td> $row[faultCategory]</td>";
-            echo "<td> $row[faultLocation]</td>";
-            echo "<td> $row[faultPriority]</td>";
-            echo "<td> $row[faultStatus]</td>";
-          echo '</tr>';
-          echo '<tr class="hide-table-padding">';
-          echo '<td></td>';
-          echo '<td colspan="4">';
-          echo '<div id="collapse'.$eid.'" class="collapse in p-3">';
-          echo '<div class="row">';
+          echo "<td> $row[faultDate]</td>
+                <td> $row[faultCategory]</td>
+                <td> $row[faultLocation]</td>
+                <td> $row[faultPriority]</td>
+                <td> $row[faultStatus]</td>";
+
+          echo '</tr>
+                <tr class="hide-table-padding">
+                <td></td>';
+                if ($Permission >1){
+                    echo '<td colspan="4">';
+                    }
+                else{
+                    echo '<td colspan="5">';
+                    }
+          echo '<div id="collapse'.$eid.'" class="collapse in p-3">
+                <div class="row">';
+
           echo "$row[faultDescription]";
           echo '</div>';
+          if ($Permission >1){
           echo "<td>";
-          echo '<div style="text-align:center;" id="collapse'.$eid.'" class="collapse in p-3">';
-         echo '<a class="btn" href="editFaultform.php?id='.@$row[ID].'"><i class="fa fa-edit" style="font-size:24px; margin=0; padding=0;"></i></a>';
-
-          echo '</div>';
+          echo '<div style="text-align:center;" id="collapse'.$eid.'" class="collapse in p-3">
+                <a class="btn" href="editFaultform.php?id='.@$row[ID].'"><i class="fa fa-edit" style="font-size:24px; margin=0; padding=0;"></i></a>
+                </div>';
           echo "</td>";
-          echo '</div></td>';
-          echo '</div>';
-          echo '</tr>';
+          }
+          echo '</div></td>
+                </div>
+                </tr>';
  
 
       $eid++;
          }
         }
-        echo "</tbody>";
-       echo "</table>";
-            
-
-?>
+      echo "</tbody>
+            </table>";
+    ?>
 	</div>
+
+
+<!-- open only onc description at time - problem start -->
+    <script>
+      // accordion-toggle collapse
+      function toggleRow(rowNum){
+        $('.collapse:not(.collapse'+rowNum+')').removeClass('show');
+
+        if ( $('.collapse'+rowNum).hasClass('show')){
+           $('.collapse'+rowNum).removeClass('show');
+        }
+        else{
+          $('.collapse'+rowNum).addClass('show');
+        }
+      };
+    </script>
+<!-- open only onc description at time - problem end -->
 
 
 <!-- footer-->
 <?php include 'footer.php'; ?>
 
-
-
-
   <br>
 
-
 </body>
-
-
 
 </html>

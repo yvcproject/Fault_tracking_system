@@ -25,7 +25,10 @@
 
 </head>
 <body>
-    
+
+<!-- Login Check -->
+<?php isset($_COOKIE["UserID"]) ? $_COOKIE["UserID"] : header("Location: ./"); ?>
+
 <!-- Head Nav Image and text -->
 <?php include 'navbar.php'; ?>
 

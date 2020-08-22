@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
 
 		if($run){
 			echo "From submitted successfully";
-             header("Location: http://localhost/FaultSystemProject/mainPage.php");
+             header("Location: ./mainPage.php");
 		}
 		else{
 			echo "Form not submitted";

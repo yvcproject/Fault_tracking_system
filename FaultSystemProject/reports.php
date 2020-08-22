@@ -6,6 +6,9 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="general.css">
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <?php
       $server = "localhost";
@@ -14,11 +17,11 @@
       $dbname = "faultsystem";
       $conn = mysqli_connect($server,$username,$password,$dbname);
    ?>
-
-
-
 </head>
 <body >
+
+
+
 
 <!-- Head Nav Image and text -->
 <?php include 'navbar.php'; ?>
@@ -26,45 +29,29 @@
 <!-- Side Nav Manu -->
 <?php include 'sidenavmenu.php'; ?>
 
-
-
-
 <div style="padding-left: 10%; padding-right: 10%; align-content: center">
 
-      <h1>Reports</h1>
-      <br>
-
-
+    <h1>Reports</h1>
+    <br>
     <div class="dropdown">
-
       <div class="buttons" style="padding-left: 4%; padding-right: 4%; align-content: center" >
-
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" dir="ltr">
-
-
-                <?php 
+                <?php
                 $filter = 'Date';
                 if(@$_GET['status']==true){
                   $filter=$_GET['status'];
                   }
                 echo 'Open Faults Ordered by '.$filter;
- 
-              ?>
-
+               ?>
           </button>
-
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="reports.php?status=Date">By Date</a>
             <a class="dropdown-item" href="reports.php?status=Priority">By Priority</a>
           </div>
-         
+         <a class="btn float-right" onclick="window.print()"><i class=" fa fa-print" aria-hidden="true"  style="font-size:30px; margin=0; padding=0;"></i></a>
 
-
-
-          <img class="float-right" src="printer.png" alt="print" width="70" height="70" onclick = "window.print()" aria-haspopup="true" aria-expanded="false">
- 
       </div>
 
     
