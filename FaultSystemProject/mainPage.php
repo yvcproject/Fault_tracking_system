@@ -30,7 +30,7 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
   <div><br><br><br><br></div>
 
 
-<div style="padding-left: 10%; padding-right: 10%; align-content: center">
+<div style="padding-left: 10%; padding-right: 10%; align-content: center" class="back" >
 
 <!-- Filter and Button -->
       <div class="dropdown">

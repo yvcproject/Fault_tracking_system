@@ -4,7 +4,7 @@ $name = isset($_COOKIE["FirstName"]) ? $_COOKIE["FirstName"] : '';
 echo '
     <script src="nav.js"></script>
     <nav class="navbar navbar-light bg-light navbar" style="  top: 0;position: fixed; width: 100%;">
-	 <span style="font-size:30px;cursor:pointer" dir="ltr" onclick="openNav()">&#9776;
+	 <span style="font-size:30px;cursor:pointer z-index: 999; " dir="ltr" onclick="openNav()">&#9776;
     Hello, '.$name.'
     </span>
 
