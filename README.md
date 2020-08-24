@@ -1,2 +1,5 @@
-# Fault_tracking_system
-Home Abuse Fault Management System
+<?php
+
+header("Location: ./FaultSystemProject/index.php");
+
+?>
