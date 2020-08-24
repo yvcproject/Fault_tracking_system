@@ -1,5 +1,5 @@
 <?php
 
-header("Location: /FaultSystemProject/index.php");
+header("Location: ./FaultSystemProject/index.php");
 
 ?>
