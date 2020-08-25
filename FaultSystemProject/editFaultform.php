@@ -98,6 +98,7 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 			<option value="closed">closed</option>
 			</select>
 			status=closed
+			<br>
 			<label>Serviseman Comments: </label><br>
 			<textarea rows="4" cols="50" name="Comments" form="faultForm" value="" placeholder="Enter Text Here" required></textarea> <br>
 
