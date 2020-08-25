@@ -20,7 +20,6 @@ if(isset($_POST['submit'])){
 		$Date = date('yy-m-d'); 
 		$status = "open";
 
-
 		$query = "insert into fault (faultDate,faultCategory,faultLocation,faultDescription,faultOpenBy,faultStatus,faultPriority) 
 		values ('$Date', '$category', '$location', '$description', '$ID', '$status','$priority')";
 
@@ -29,12 +28,7 @@ if(isset($_POST['submit'])){
 		
 
 		if($run){
-			echo "From submitted successfully";
-             header("Location: ./mainPage.php");
-		}
-		else{
-			echo "Form not submitted";
-           
+             header("Location: ./mainPage.php?msg=Fault Added Successfully");
 		}
 	}
 

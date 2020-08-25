@@ -29,6 +29,24 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 
   <div><br><br><br><br></div>
 
+<!-- PopUp Alert Script -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<?php
+    if ( isset($_GET['msg']) ){
+        $msg = $_GET['msg'];
+        echo '
+                <script>
+                    swal({
+                      title: "'.$msg.'",
+                      text: "Click \"ok\" to close ",
+                      icon: "success",
+                      button: "OK",
+                    });
+                </script>
+        ';
+    }
+ ?>
 
 <div style="padding-left: 10%; padding-right: 10%; align-content: center" class="back" >
 

@@ -76,13 +76,6 @@
 			
 		</form>
 	</div> 
-	
-
-
-
-
-
-
 	<br>
 <!-- footer-->
 <?php include 'footer.php'; ?>

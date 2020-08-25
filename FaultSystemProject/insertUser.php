@@ -25,11 +25,7 @@ if(isset($_POST['submit'])){
 		$run = mysqli_query($conn,$query) or die(mysqli_error());
 
 		if($run){
-			echo "From submitted successfully";
-			header("Location: http://localhost/FaultSystemProject/mainPage.php");
-		}
-		else{
-			echo "Form not submitted";
+			header("Location: ./mainPage.php?msg=User Added Successfully");
 		}
 }
 	else{
