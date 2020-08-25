@@ -141,6 +141,10 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 			echo $html;
          ?>
 	</div> 
-	
+
+	<!-- footer-->
+    <?php include 'footer.php'; ?>
+
+
 </body>
 </html>
