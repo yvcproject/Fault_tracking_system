@@ -68,7 +68,8 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 	          	<h3> Fault # '.$fault_ID.' </h3>
 				<h3> fault Date '.$fault_Date.' </h3>
 
-				<form action="UpdateFault.php" method="post" id ="faultForm" >
+				<form action="updateFault.php" method="post" id ="updateForm" >
+				<input type="hidden" name="fault_id" value="'.$fault_ID.'">
 				<label>Category: </label>
 				<select name="category" value='.$fault_category.'required>
 											';
@@ -101,24 +102,20 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 			<label>not very important - </label>';
 
 			foreach ($priorityOptions as $optionKey => $optionVal) {
-				$html.= '<input required="r" type="radio" name="Priority"  value="'.$optionKey.'" '.($optionKey == $fault_status ? 'checked': '').'>'.$optionVal.'';
+				$html.= '<input required="r" type="radio" name="Priority"  value="'.$optionKey.'" '.($optionKey == $fault_priority ? 'checked': '').'>'.$optionVal.'';
 			};
-
 			$html.= '
 
 			<label> - very important</label>
-
 			</div>
-
 			<label>Description: </label><br>
-			<textarea rows="4" cols="50" name="description" form="faultForm" required> '.$fault_description.'  </textarea> <br>
-
+			<textarea rows="4" cols="50" name="description" form="updateForm" required> '.$fault_description.'  </textarea> <br>
 
 			<label>Serviceman Comments: </label><br>
-			<textarea rows="4" cols="50" name="Comments" form="faultForm" required> '.$serviceman_comments.' </textarea>  <br>
+			<textarea rows="4" cols="50" name="Comments" form="updateForm" required> '.$serviceman_comments.' </textarea>  <br>
 
 			<label>Part replaced: </label><br>
-			<textarea rows="4" cols="50" name="replaced" form="faultForm" value="" required> '.$parts_replaced.' </textarea> <br>
+			<textarea rows="4" cols="50" name="replaced" form="updateForm" value="" required> '.$parts_replaced.' </textarea> <br>
             <label>Status: </label>
             <select name="status" value='.$fault_status.' required>
                 ';

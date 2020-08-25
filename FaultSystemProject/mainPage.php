@@ -190,10 +190,11 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 <!-- open only onc description at time - problem end -->
 
 
+</div>
+</div>
+
 <!-- footer-->
 <?php include 'footer.php'; ?>
-
-  <br>
 
 </body>
 

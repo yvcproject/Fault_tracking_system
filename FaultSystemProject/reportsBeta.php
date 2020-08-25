@@ -54,19 +54,19 @@
 
       </div>
 
-
+    
+    <!-- Fault Table From DB -->
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        
 
 
             <div class="container my-4">
 
 
-
-    <!-- Fault Table From DB -->
 
         <?php  
 
@@ -75,32 +75,30 @@
             if(@$_GET['status']==true){
               $statusview=$_GET['status'];
             }
-
-            //where faultStatus= 'open'
-
-            $query = "select * from fault   order by faultDate";
+            
+            $query = "select * from fault where faultStatus= 'open'  order by faultDate";
 
             if($statusview== 'Priority'){
-              $query = "select * from fault  order by faultPriority DESC";
+              $query = "select * from fault where faultStatus= 'open' order by faultPriority DESC";
             }
 
-            echo '<div class="table-responsive">';
+              echo '<div class="table-responsive">';
             echo "<table class=\"table-condensed table-hover table table-striped table-bordered\" 
                 //style=\"margin-left: auto; margin-right: auto; \">";
 
-              echo '<thead>
-                    <tr>
-                    <th scope="col">Fault ID</th>
-                    <th scope="col">Opend Date</th>
-                    <th scope="col">Opend By</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Location</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Priority</th>
-                    <th scope="col">Status</th>
-                    </tr>
-                    </thead>
-                    <tbody>';
+              
+              //echo '<table class="table">';
+              echo '<thead>';
+              echo '<tr>';
+              echo '<th scope="col">#</th>';
+              echo '<th scope="col">Date</th>';
+              echo '<th scope="col">Category</th>';
+              echo '<th scope="col">Location</th>';
+              echo '<th scope="col">Priority</th>';
+              echo '<th scope="col">status</th>';
+              echo '</tr>';
+              echo '</thead>';
+              echo '<tbody>';
 
 
 
@@ -110,48 +108,33 @@
         
          while($row = mysqli_fetch_array($run)) 
          {
-          echo '<tr >';
-          echo "<td> $row[ID] </td>
-                <td> $row[faultDate]</td>
-                <td> $row[faultOpenBy]</td>
-                <td> $row[faultCategory]</td>
-                <td> $row[faultLocation]</td>
-                <td>
-
-                 $row[faultDescription]
-
-                 </td>
-                <td> $row[faultPriority]</td>
-                <td> $row[faultStatus]</td>";
+          echo '<tr class="accordion-toggle collapsed" id="accordion1" data-toggle="collapse" data-parent="#accordion1" href="#collapse'.$eid.'">';
+          echo '<td class="expand-button"> </td>';
+            echo "<td> $row[faultDate]</td>";
+            echo "<td> $row[faultCategory]</td>";
+            echo "<td> $row[faultLocation]</td>";
+            echo "<td> $row[faultPriority]</td>";
+            echo "<td> $row[faultStatus]</td>";
           echo '</tr>';
-
-          if ( @$row[faultStatus] == 'closed') {
-          echo '<tr>';
-          echo '<td>Closed <br> Details</td>';
-          echo '<td>Closed Date:</td>';
-          echo "<td>$row[faultClosedDate]</td>";
-          echo '<td>ServiceMan Comments:</td>';
-          echo "<td>$row[serviceManComments]</td>";
-          echo '<td>Parts Replacement:</td>';
-          echo "<td >$row[partsReplaced]</td>";
-
-          echo '<td colspan="2">';
+          echo '<tr class="hide-table-padding">';
+          echo '<td></td>';
+          echo '<td colspan="4">';
           echo '<div id="collapse'.$eid.'" class="collapse in p-3">';
           echo '<div class="row">';
           echo "$row[faultDescription]";
           echo '</div>';
           echo "<td>";
-
-
           echo '<div style="text-align:center;" id="collapse'.$eid.'" class="collapse in p-3">';
-          echo '<a class="btn" href="editFaultform.php?id='.@$row[ID].'"><i class="fa fa-edit" style="font-size:24px; margin=0; padding=0;"></i></a>';
+         echo '<a class="btn" href="editFaultform.php?id='.@$row[ID].'"><i class="fa fa-edit" style="font-size:24px; margin=0; padding=0;"></i></a>';
 
           echo '</div>';
           echo "</td>";
           echo '</div></td>';
           echo '</div>';
           echo '</tr>';
-        }
+ 
+
+      $eid++;
          }
         }
         echo "</tbody>";
