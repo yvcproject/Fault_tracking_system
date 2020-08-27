@@ -1,0 +1,27 @@
+.mainContainer{
+    margin-top:90px;
+    padding-left: 10%;
+    padding-right: 10%;
+    align-content: center;
+}
+.tableTopRow{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.tableTopRow .sortingCont{
+    display: flex;
+}
+.tableTopRow .sortingCont .dropdownCont{
+    margin: 0 10px;
+}
+
+.tableTopRow .sortingCont .dropdownCont:first-child{
+    margin-left:0;
+}
+
+table td{
+    max-width: 200px;
+    word-break: break-word;
+}

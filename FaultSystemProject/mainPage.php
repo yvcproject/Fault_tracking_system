@@ -3,6 +3,7 @@
 <head>
 	<title>Home Page</title>
 	<link rel="stylesheet" type="text/css" href="nav.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="mainPage.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -27,10 +28,10 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 <!-- Side Nav Manu -->
 <?php include 'sidenavmenu.php'; ?>
 
-  <div><br><br><br><br></div>
-
 <!-- PopUp Alert Script -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<br>
 
 <?php
     if ( isset($_GET['msg']) ){
@@ -48,7 +49,7 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
     }
  ?>
 
-<div style="padding-left: 10%; padding-right: 10%; align-content: center" class="back" >
+<div class="mainContainer back">
 
 <!-- Filter and Button -->
       <div class="dropdown">

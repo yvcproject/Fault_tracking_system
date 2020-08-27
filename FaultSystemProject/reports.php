@@ -3,6 +3,7 @@
 <head>
 	<title> Reports </title>
 		<link rel="stylesheet" type="text/css" href="nav.css">
+		<link rel="stylesheet" type="text/css" href="main.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="general.css">
 
@@ -29,59 +30,70 @@
 <!-- Side Nav Manu -->
 <?php include 'sidenavmenu.php'; ?>
 
-<div style="padding-left: 10%; padding-right: 10%; align-content: center">
+<div style="padding:0 15px; align-content: center">
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sticky-table-headers"></script>
 
     <h1>Reports</h1>
     <br>
 
-    <!-- Filter and Button -->
- <div class="dropdown">
-      <div class="buttons" style="padding-left: 4%; padding-right: 4%; align-content: center" >
+    <div class="container my-4">
+        <div class="tableTopRow">
+            <div class="sortingCont">
+                <div class="dropdownCont">
+                    <button class="btn btn-secondary dropdown-toggle"
+                            type="button"
+                            id="dropdownMenuButton1"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            dir="ltr">
 
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" dir="ltr">
-                <?php
+                                 <?php
 
-                $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : 'ID';
-                echo "Ordered by $orderby";
-               ?>
-          </button>
+                                 $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : 'ID';
+                                 echo "Ordered by $orderby";
+                                ?>
+                     </button>
 
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <a class="dropdown-item" href="reports.php?orderby=ID">By ID</a>
-            <a class="dropdown-item" href="reports.php?orderby=faultDate">By Date</a>
-            <a class="dropdown-item" href="reports.php?orderby=faultPriority">By Priority</a>
-          </div>
+                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                         <a class="dropdown-item" href="reports.php?orderby=ID">By ID</a>
+                         <a class="dropdown-item" href="reports.php?orderby=faultDate">By Date</a>
+                         <a class="dropdown-item" href="reports.php?orderby=faultPriority">By Priority</a>
+                     </div>
+                </div>
+                <div class="dropdownCont">
+                    <button class="btn btn-secondary dropdown-toggle"
+                            type="button"
+                            id="dropdownMenuButton2"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            dir="ltr">
 
+                                <?php
 
+                                $filter = isset($_GET['filter']) ? $_GET['filter'] : 'open';
+                                echo "Filter by $filter";
+                               ?>
+                      </button>
 
-         <a class="btn float-right" onclick="window.print()"><i class=" fa fa-print" aria-hidden="true"  style="font-size:30px; margin=0; padding=0;"></i></a>
-
-      </div>
-
-                 <button class="btn btn-secondary dropdown-toggle" type="button" id="2"
-                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" dir="ltr">
-                       <?php
-
-                       $filter = isset($_GET['filter']) ? $_GET['filter'] : 'open';
-                       echo "Filter by $filter";
-                      ?>
-                 </button>
-
-                 <div class="dropdown-menu" aria-labelledby="2">
-                   <a class="dropdown-item" href="reports.php?filter=open">Open</a>
-                   <a class="dropdown-item" href="reports.php?filter=closed">Closed</a>
-                   <a class="dropdown-item" href="reports.php?filter=All">All</a>
-                 </div>
-
-            <div class="container my-4">
-
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                        <a class="dropdown-item" href="reports.php?filter=open">Open</a>
+                        <a class="dropdown-item" href="reports.php?filter=closed">Closed</a>
+                        <a class="dropdown-item" href="reports.php?filter=All">All</a>
+                      </div>
+               </div>
+           </div>
+           <div class="actionsCont">
+                 <a class="btn float-right" onclick="window.print()"><i class=" fa fa-print" aria-hidden="true"  style="font-size:30px; margin=0; padding=0; cursor: pointer;"></i></a>
+           </div>
+       </div>
     <!-- Fault Table From DB -->
 
         <?php  
@@ -101,10 +113,10 @@
             }
 
             echo '<div class="table-responsive">';
-            echo "<table class=\"table-condensed table-hover table table-striped table-bordered\" 
+            echo "<table class=\"table-condensed table-hover table table-striped table-bordered\"
                 //style=\"margin-left: auto; margin-right: auto; \">";
 
-              echo '<thead>
+              echo '<thead style="background: rgb(58 151 196);">
                     <tr>
                     <th scope="col">Fault ID</th>
                     <th scope="col">Opend Date</th>
@@ -147,23 +159,10 @@
           echo '<td>Closed Date:</td>';
           echo "<td>$row[faultClosedDate]</td>";
           echo '<td>ServiceMan Comments:</td>';
-          echo "<td>$row[serviceManComments]</td>";
+          echo "<td >$row[serviceManComments]</td>";
           echo '<td>Parts Replacement:</td>';
-          echo "<td >$row[partsReplaced]</td>";
+          echo "<td colspan=\"2\">$row[partsReplaced]</td>";
 
-          echo '<td colspan="2">';
-          echo '<div id="collapse'.$eid.'" class="collapse in p-3">';
-          echo '<div class="row">';
-          echo "$row[faultDescription]";
-          echo '</div>';
-          echo "<td>";
-
-
-          echo '<div style="text-align:center;" id="collapse'.$eid.'" class="collapse in p-3">';
-          echo '<a class="btn" href="editFaultform.php?id='.@$row[ID].'"><i class="fa fa-edit" style="font-size:24px; margin=0; padding=0;"></i></a>';
-
-          echo '</div>';
-          echo "</td>";
           echo '</div></td>';
           echo '</div>';
           echo '</tr>';
@@ -177,25 +176,22 @@
     ?>
       </div>
 
-
-
-
-
-
-
   </div>
-
-
-
-
-
-
-
-
 
   <br>
 <!-- footer-->
 <?php include 'footer.php'; ?>
+<script>
+      $(function(){
+       $("table").stickyTableHeaders();
+        var $nav = $('nav');
 
+        $(window).on('scroll', function(){
+         var scrollTop = $(window).scrollTop();
+                   if(scrollTop > 150) $nav.hide();
+                   else $nav.show();
+        });
+      });
+        </script>
 </body>
 </html>

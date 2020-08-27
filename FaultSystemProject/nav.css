@@ -9,11 +9,13 @@
   background-color: #111; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  transition: 0.5s; /* 0.padding-left: 10%;padding-right: 10%;align-content: center;margin-top: 80px;5 second transition effect to slide in the sidenav */
 }
 
-.nav {
-  z-index: 9999;
+.navbar {
+  z-index: 100;
+  position:  fixed !important;
+  box-shadow: 0px 1px 6px 0px black;
 }
 
 .back {
