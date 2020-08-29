@@ -30,7 +30,7 @@
 <?php include 'sidenavmenu.php'; ?>
         
     <div style="padding-left: 20%; padding-right: 20%; align-content: center">
-
+		<br> <br> <br>
     	<h1> Add New User </h1>
 		<br>
 
