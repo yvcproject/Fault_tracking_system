@@ -132,7 +132,13 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 			$html.= '
 			</select>
             <br><br>
-			<button type="submit" name="submit">Submit</button>
+			<button type="submit" name="submit" style="
+													border-radius: 8px;
+													background-color: #66CDAA;
+													padding: 12px 28px;
+													font-weight: bold;"
+		>Submit</button>
+		<br>
 			</form>';
 							
 			echo $html;
