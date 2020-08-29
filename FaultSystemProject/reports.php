@@ -57,7 +57,7 @@
                                  <?php
 
                                  $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : 'ID';
-                                 echo "Ordered by $orderby";
+                                 echo "Ordered By $orderby";
                                 ?>
                      </button>
 
@@ -99,18 +99,46 @@
         <?php  
 
             $statusview = "Date";
-            
+
             if(@$_GET['status']==true){
               $statusview=$_GET['status'];
             }
 
             //where faultStatus= 'open'
-
-            $query = "select * from fault   order by $orderby";
-
-            if($statusview== 'Priority'){
-              $query = "select * from fault  order by faultPriority DESC";
+            
+            if($filter =='closed'){
+              if($orderby == 'faultPriority'){
+                $query = "select * from fault where faultStatus= 'closed' order by $orderby DESC";
+              }
+              else {
+                $query = "select * from fault where faultStatus= 'closed' order by $orderby";
+              }
             }
+
+            elseif ($filter =='open') {
+              if($orderby == 'faultPriority'){
+                $query = "select * from fault where faultStatus= 'open' order by $orderby DESC";
+              }
+              else{
+                $query = "select * from fault where faultStatus= 'open' order by $orderby";
+              }  
+            }
+
+            else {
+              if($orderby == 'faultPriority'){
+                $query = "select * from fault order by $orderby DESC";
+              }
+              else{
+                $query = "select * from fault order by $orderby";
+              }
+            }
+
+
+            //$query = "select * from fault order by $orderby";
+
+            //if($statusview== 'Priority'){
+            //  $query = "select * from fault order by faultPriority DESC";
+            //}
 
             echo '<div class="table-responsive">';
             echo "<table class=\"table-condensed table-hover table table-striped table-bordered\"
@@ -119,8 +147,8 @@
               echo '<thead style="background: rgb(58 151 196);">
                     <tr>
                     <th scope="col">Fault ID</th>
-                    <th scope="col">Opend Date</th>
-                    <th scope="col">Opend By</th>
+                    <th scope="col">Opened Date</th>
+                    <th scope="col">Opened By</th>
                     <th scope="col">Category</th>
                     <th scope="col">Location</th>
                     <th scope="col">Description</th>
@@ -193,5 +221,7 @@
         });
       });
         </script>
+
+        
 </body>
 </html>
