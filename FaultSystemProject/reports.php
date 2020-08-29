@@ -59,6 +59,7 @@
 
                                  $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : 'ID';
                                  echo "Ordered By $orderby";
+                                 
                                 ?>
                      </button>
 
@@ -81,6 +82,7 @@
 
                                 $filter = isset($_GET['filter']) ? $_GET['filter'] : 'open';
                                 echo "Filter by $filter";
+
                                ?>
                       </button>
 
@@ -99,29 +101,22 @@
 
         <?php  
 
-            $statusview = "Date";
-
-            if(@$_GET['status']==true){
-              $statusview=$_GET['status'];
-            }
-
-            //where faultStatus= 'open'
             
             if($filter =='closed'){
               if($orderby == 'faultPriority'){
-                $query = "select * from fault where faultStatus= 'closed' order by $orderby DESC";
+                $query = "select * from fault where faultStatus= '$filter' order by $orderby DESC";
               }
               else {
-                $query = "select * from fault where faultStatus= 'closed' order by $orderby";
+                $query = "select * from fault where faultStatus= '$filter' order by $orderby";
               }
             }
 
             elseif ($filter =='open') {
               if($orderby == 'faultPriority'){
-                $query = "select * from fault where faultStatus= 'open' order by $orderby DESC";
+                $query = "select * from fault where faultStatus= '$filter' order by $orderby DESC";
               }
               else{
-                $query = "select * from fault where faultStatus= 'open' order by $orderby";
+                $query = "select * from fault where faultStatus= '$filter' order by $orderby";
               }  
             }
 
