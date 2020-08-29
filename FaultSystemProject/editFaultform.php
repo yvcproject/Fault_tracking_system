@@ -138,8 +138,8 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 												padding: 12px 28px;
 												font-weight: bold;"
 			>Submit</button>
-			<br>
-			</form>';
+			</form>
+			<br>';
 							
 			echo $html;
          ?>
