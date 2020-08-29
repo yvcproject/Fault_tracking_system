@@ -49,7 +49,7 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
     }
  ?>
 
-<div class="mainContainer back">
+<div class="mainContainer back" style="padding-left: 13.5%; padding-right: 13.5%; align-content: center">
 <h1>Fault System</h1>
 <br>
 <!-- Filter and Button -->
