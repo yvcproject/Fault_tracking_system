@@ -58,13 +58,18 @@
 
                                  $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : 'ID';
                                  echo "Ordered by $orderby";
-                                ?>
+
+                                $filter = isset($_GET['filter']) ? $_GET['filter'] : 'open';
+
+
+                           echo '
+
                      </button>
 
                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                         <a class="dropdown-item" href="reports.php?orderby=ID">By ID</a>
-                         <a class="dropdown-item" href="reports.php?orderby=faultDate">By Date</a>
-                         <a class="dropdown-item" href="reports.php?orderby=faultPriority">By Priority</a>
+                         <a class="dropdown-item" href="reports.php?orderby=ID&filter='.$filter.'">By ID</a>
+                         <a class="dropdown-item" href="reports.php?orderby=faultDate&filter='.$filter.'">By Date</a>
+                         <a class="dropdown-item" href="reports.php?orderby=faultPriority&filter='.$filter.'">By Priority</a>
                      </div>
                 </div>
                 <div class="dropdownCont">
@@ -75,18 +80,14 @@
                             aria-haspopup="true"
                             aria-expanded="false"
                             dir="ltr">
+                            Filter by '.$filter.'
 
-                                <?php
-
-                                $filter = isset($_GET['filter']) ? $_GET['filter'] : 'open';
-                                echo "Filter by $filter";
-                               ?>
                       </button>
 
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                        <a class="dropdown-item" href="reports.php?filter=open">Open</a>
-                        <a class="dropdown-item" href="reports.php?filter=closed">Closed</a>
-                        <a class="dropdown-item" href="reports.php?filter=All">All</a>
+                        <a class="dropdown-item" href="reports.php?filter=open&orderby='.$orderby.'">Open</a>
+                        <a class="dropdown-item" href="reports.php?filter=closed&orderby='.$orderby.'">Closed</a>
+                        <a class="dropdown-item" href="reports.php?filter=All&orderby='.$orderby.'">All</a>
                       </div>
                </div>
            </div>
@@ -94,23 +95,28 @@
                  <a class="btn float-right" onclick="window.print()"><i class=" fa fa-print" aria-hidden="true"  style="font-size:30px; margin=0; padding=0; cursor: pointer;"></i></a>
            </div>
        </div>
+
+       ';
+       ?>
+
+
     <!-- Fault Table From DB -->
 
         <?php  
-
-            $statusview = "Date";
-            
-            if(@$_GET['status']==true){
-              $statusview=$_GET['status'];
-            }
-
             //where faultStatus= 'open'
 
-            $query = "select * from fault   order by $orderby";
+                    if($filter== 'All'){
+                         $query = "select *
+                                   from fault
+                                   order by $orderby desc";
+                    }
+                    else{
+                         $query = "select *
+                                   from fault
+                                   where faultStatus = '$filter'
+                                   order by $orderby desc";
+                    }
 
-            if($statusview== 'Priority'){
-              $query = "select * from fault  order by faultPriority DESC";
-            }
 
             echo '<div class="table-responsive">';
             echo "<table class=\"table-condensed table-hover table table-striped table-bordered\"
@@ -133,7 +139,7 @@
 
 
 		$run = mysqli_query($conn,$query) or die(mysqli_error());
-    $eid=1;
+
 		if($run){
         
          while($row = mysqli_fetch_array($run)) 
