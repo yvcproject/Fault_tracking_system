@@ -105,17 +105,35 @@
         <?php  
             //where faultStatus= 'open'
 
+
+                  if($orderby=='faultPriority'){
                     if($filter== 'All'){
-                         $query = "select *
-                                   from fault
-                                   order by $orderby desc";
+                      $query = "select *
+                                from fault
+                                order by $orderby desc";
                     }
                     else{
-                         $query = "select *
-                                   from fault
-                                   where faultStatus = '$filter'
-                                   order by $orderby desc";
+                          $query = "select *
+                                    from fault
+                                    where faultStatus = '$filter'
+                                    order by $orderby desc";
                     }
+                  }
+                  
+                  else {
+                    if($filter== 'All'){
+                      $query = "select *
+                                from fault
+                                order by $orderby";
+                    }
+                    else{
+                          $query = "select *
+                                    from fault
+                                    where faultStatus = '$filter'
+                                    order by $orderby";
+                    }
+                  }
+
 
 
             echo '<div class="table-responsive">';
