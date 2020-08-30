@@ -15,7 +15,7 @@ echo '
 
     </span>
 
- <button style="margin-left: 30px;"
+ <button type="button" class="btn btn-outline-secondary" style="margin-left: 30px;"
          onclick="location.href='."'index.php'".'";>Log out</button>
 
  </div>
