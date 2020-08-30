@@ -36,12 +36,12 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
         <?php 
         	
         	$categoryOptions = array(
-        		'electricity' => 'Electricity',
-        		'safetyHazard' => 'Safety Hazard',
-				'toilet' => 'Toilet',
-				'computerization' => 'Computerization',
-				'fractional' => 'Fractional',
-				'other' => 'Other'
+        		'Electricity' => 'Electricity',
+        		'Safety Hazard' => 'Safety Hazard',
+				'Toilet' => 'Toilet',
+				'Computerization' => 'Computerization',
+				'Fractional' => 'Fractional',
+				'Other' => 'Other'
         	);
 
           $faultID = '0';
