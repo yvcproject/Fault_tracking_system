@@ -48,6 +48,9 @@
 					<option value="electricity">Electricity</option>
 					<option value="safetyHazard">Safety Hazard</option>
 					<option value="toilet">Toilet</option>
+					<option value="computerization">Computerization</option>
+					<option value="fractional">Fractional</option>
+					<option value="other">Other</option>
 					</select> 
 			<br>
 			
