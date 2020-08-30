@@ -38,7 +38,10 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
         	$categoryOptions = array(
         		'electricity' => 'Electricity',
         		'safetyHazard' => 'Safety Hazard',
-        		'toilet' => 'Toilet'
+				'toilet' => 'Toilet',
+				'computerization' => 'Computerization',
+				'fractional' => 'Fractional',
+				'other' => 'Other'
         	);
 
           $faultID = '0';
