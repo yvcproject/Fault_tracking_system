@@ -45,12 +45,12 @@
 			<label>Category: </label> <br>
 			<select name="category" required>
 					<option value=""></option>
-					<option value="electricity">Electricity</option>
-					<option value="safetyHazard">Safety Hazard</option>
-					<option value="toilet">Toilet</option>
-					<option value="computerization">Computerization</option>
-					<option value="fractional">Fractional</option>
-					<option value="other">Other</option>
+					<option value="Electricity">Electricity</option>
+					<option value="Safety Hazard">Safety Hazard</option>
+					<option value="Toilet">Toilet</option>
+					<option value="Computerization">Computerization</option>
+					<option value="Fractional">Fractional</option>
+					<option value="Other">Other</option>
 					</select> 
 			<br>
 			
