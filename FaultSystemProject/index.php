@@ -35,10 +35,9 @@
   <body class="text-center">
     <form action="signin.php" method="post" id ="signin" class="form-signin">
         
-        
+
   <img class="mb-4" src="YARLOGO.jpg" alt="" width="200" height="72">
-        
-        
+
   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
   <label for="inputID" class="sr-only">ID</label>
   <input name="ID" type="text" id="inputID" class="form-control" placeholder="ID" required autofocus>
