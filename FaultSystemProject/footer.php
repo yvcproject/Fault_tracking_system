@@ -1,7 +1,6 @@
 <?php
 echo '
     <div class="footer" id="footer" style="
-                                            position: absolute;
                                             width: 100%;
                                             left: 0;
                                             bottom: 0;
