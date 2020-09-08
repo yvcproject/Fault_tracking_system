@@ -36,12 +36,10 @@
     <form action="signin.php" method="post" id ="signin" class="form-signin">
         
 
-  <!-- <img class="mb-4" src="YARLOGO.jpg" alt="" width="200" height="72"> -->
+  
 
 
-    <img class="mb-4" src="YARLOGO3.jpeg" alt="" width="300" height="150">
-   
-        
+  <img class="mb-4" src="YARLogoLogin.jpeg" alt="" width="300" height="150">     
   <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
   <label for="inputID" class="sr-only">ID</label>
   <input name="ID" type="text" id="inputID" class="form-control" placeholder="ID" required autofocus>
