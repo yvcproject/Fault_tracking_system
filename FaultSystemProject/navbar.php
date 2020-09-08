@@ -21,7 +21,8 @@ echo '
  </div>
     <a class="navbar-brand" href="./mainPage.php" style="font-size:30px;cursor:">
         FaultSystemProject - YAR
-        <img src="YARLOGO.jpg" alt="logo" width="80" height="40" class="d-inline-block align-top" loading="lazy">
+        <!-- <img src="YARLOGO.jpg" alt="logo" width="80" height="40" class="d-inline-block align-top" loading="lazy"> -->
+        <img src="YARLOGO4.jpeg" alt="logo" width="80" height="40" class="d-inline-block align-top" loading="lazy">
     </a>
 </nav>
 </div>
